@@ -167,7 +167,7 @@ Associate Floating IP to Load balancer.
 
 ### Add Security group to Load balancer
 
-Go to Ports in Subnet and add th.e same security group for the servers to the Load balancer (Octavia)
+Go to Ports in Subnet and add the same security group for the servers to the Load balancer (Octavia)
 
 ### Verify the setup
 
