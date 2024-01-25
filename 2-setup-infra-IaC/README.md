@@ -15,15 +15,14 @@ And a few notes:
 
 ## Assignment Part 1 - Terraform initialization
 
-Clone this repository with git clone and enter the `terraform/` directory.
+Clone this repository with git clone (Command to do that: git clone https://github.com/EternalFr0st/cloud-labs.git) and enter the `terraform/` directory.
 
 Make sure to source the RC file you have downloaded from Cleura/Openstack
 
 And both steps are done and run `terraform init` and it should return an output similar to this:
 
 ```
- ❯ terraform init                                                                                                                                                                                                               [12:24:11]
-
+ ❯ terraform init                                                              
 Initializing the backend...
 
 Initializing provider plugins...
