@@ -1,0 +1,4 @@
+resource "openstack_compute_keypair_v2" "iths-jonas" {
+  name       = "iths-jonas-tf"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBD/HewBzBEKPHgrKGgJ3L+P/j3x71yxMQVlY1KZW0UJdz0ZcTpvw4PAyQmXfgjH1wUOE5CMEXpy4rmMfZ04PihMuH4toW/CZBv2nnl1Cjd3ANdmRMkjeXtbQPvBIaspvGmF2PnvGFlsecn3KjDy7bm9cb8LL4P4fOmiXf2fZyxARWmfOAHdC0QQ6Y1GWVPZrxiFnOFH5HIpfyw/myacfQ0bITpnxDeKCqH5PBwnICOLxyc10TM//i/dWo8tnMDpjMnGClA5thyK0isE5v0CvOQ1REnt6/pF61TbISFPYlEWWA3w8w1023/DU3KZAYeDpYkBUJBykiT4UANtgNm4zUmj17dIbbuyx0Ax6SYgVlNt/HYLewLPEX5nQCslE7WIS2l7dPcvVAa90cjSquzmA+Lh+Dlm+jqXrA9uznztrXDktumrCU8JBSNJ37IBeNWd2RAvnyQzh5CZX0XeT9+3Oho3majyhVFgTE0W5Fg+IParSv80tylOsDlINHN1pAFSM= linuxnet@EternalBlue"
+}
