@@ -10,13 +10,13 @@ For every configuration you do in Openstack there is a description that will exp
 
 ### Create a Key pair
 
-Create a key pair: `<name-key>`
+Create a keypair on your machine and import the public key into Openstack. 
 
-Your key will automatically be downloaded. You will need the key later.
+You can also create the keypair in Openstack and download the private key. This is considered less secure.
 
 ### Setup Network, Subnet, Router
 
-Setup a Network with a Subnet and Router, make sure to select the option "Create a complete network, containing a subnet and a router".
+Setup a Network with a Subnet and Router:
 You can leave the configuration default, but highly recommend customizing it to understand how it works, how it looks.
 
 - Network
@@ -26,7 +26,6 @@ You can leave the configuration default, but highly recommend customizing it to 
     - range: `10.0.x.0/24`
     - dns: `8.8.8.8` and `8.8.4.4`
 
-Don't forget to adjust your DHCP range based on what Private IP space you chose.
 And you *MUST* add the router and select the external network. There should only be one external network.
 
 ### Security Groups
@@ -44,7 +43,6 @@ A Bastion host / Proxy server and allows the client machines to connect to the r
     - Name: `<name>-bastion-<az>` // ex. mai-bastion-sto1
     - AZ: Choose any zone
     - Boot Source: `Image`
-    - New Volume: `No`
     - Choose an Image (You will need to find what the default username is for the image you choose.)
     - Flavor: `m1.small`
     - Network: The Network you created in the earlier steps
@@ -100,7 +98,6 @@ Create a new Instance and make sure you can SSH to it only from Bastion host.
     - Name: `<name>-web-<number>` // ex. jonas-web-1
     - AZ: Choose any zone
     - Boot Source: `Image`
-    - New Volume: `No`
     - Choose an Image (You will need to find what the default username is for the image you choose.)
     - Flavor: `m1.small`
     - Network: The Network you created in the earlier steps
@@ -141,7 +138,6 @@ In a normal scenario the load balancer would be provided by the cloud environmen
     - Name: `<name>-lb-<number>` // ex. jonas-lb-1
     - AZ: Choose any zone
     - Boot Source: `Image`
-    - New Volume: `No`
     - Choose an Image (You will need to find what the default username is for the image you choose.)
     - Flavor: `m1.small`
     - Network: The Network you created in the earlier steps
@@ -151,7 +147,7 @@ In a normal scenario the load balancer would be provided by the cloud environmen
 
 Challenge here! Setup a basic HAProxy load balancer for HTTP to send balance traffic between the earlier 2 web server nodes.
 
-HAProxy configuration should be very minimal and basic. One frontend and one backend to balance load between the 2 earlier VMs.
+HAProxy configuration should be very minimal and basic. One frontend and one backend (these are HAProxy configuration terms) to balance load between the 2 earlier VMs.
 
 ### Associate Floating IP to Load balancer
 
@@ -162,8 +158,3 @@ Associate Floating IP to Load balancer instance.
 - SSH to the Bastion host
 - SSH to the Web servers
 - Copy and past Floating IP for the Load balancer instance in the web browser and refresh - you should see the content switching
-- Visit the health endpoint
-
-## Challenge!
-
-- Add to your SSH configuration to jump directly to the Server via Bastion instead of first SSH into Bastion and from Bastion SSH to Server.
