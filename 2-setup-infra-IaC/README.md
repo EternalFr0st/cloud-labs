@@ -54,9 +54,17 @@ If you a similar output, you're ready to proceed to part 2 of actually configuri
 
 ## Assignment Part 2 - Terraform
 
-!!! IMPORTANT - You need to first remove all the resources you have created by hand from the account before proceeding.
+!!! IMPORTANT - It's highly recommended to first remove all the resources you have created by hand from the account before proceeding.
 
-- With terraform setup infrastructure from lab `1-setup-infra`
+- With terraform setup infrastructure that we have created manually before:
+  - A network
+  - A subnet
+  - A router, that is both connected externally and to the subnet
+  - A VM, m1.small
+  - A floating IP associated with the VM
+
+All of this should lead to the same setup as before, just all automatically configured by Terraform.
+You should be able to SSH into the VM, same as before.
 
 The main idea here is to create the exact same resources that we did by hand just in terraform.
 
@@ -74,7 +82,7 @@ Essentially we are creating a `resource` of type `openstack_networking_floatingi
 
 From this docs page, we can see that there's a mandatory argument for `pool`: https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_floatingip_v2
 
-Pool refers to the external network that Cleura provides, which is called "external-net"
+Pool refers to the external network that the cloud provider configures, which is called "external-net" in our environment.
 
 If you run `terraform apply` after creating that file and approve the changes, you will have a floating IP created and you can check that in the Web GUI.
 
